@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内置模块_弹窗属性</title>
+</head>
+
+<link rel="stylesheet" href="layui-v2.5.6/layui/css/layui.css">
+<script src="layui-v2.5.6/layui/layui.all.js"></script>
+<script src="layui-v2.5.6/layui/layui.js"></script>
+
+<body>
+<form class="layui-form layui-form-pane" action="" method="post">
+    <!-- layui-form-item 一个输入项-->
+    <div class="layui-form-item">
+        <label class="layui-form-label">生日</label>
+        <!-- layui-input-block 输入框会占满除文字外的整行 -->
+        <div class="layui-input-block">
+            <input readonly id="birth" type="text" name="birth" placeholder="请选择生日日期" autocomplete="off" class="layui-input">
+        </div>
+    </div>
+</form>
+</body>
+<script>
+    layui.use(["laydate","form"],function(){
+        var laydate = layui.laydate;
+        //执行一个laydate实例
+        laydate.render({
+            elem: '#birth', //指定元素
+            format:'yyyy/MM/dd',//指定格式
+            value:'2012/12/12' //默认值
+            // value:new Date() //默认值
+        });
+    });
+</script>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>内置模块_弹窗属性</title>
+</head>
+
+<link rel="stylesheet" href="layui-v2.5.6/layui/css/layui.css">
+<script src="layui-v2.5.6/layui/layui.all.js"></script>
+<script src="layui-v2.5.6/layui/layui.js"></script>
+
+<!-- - type 弹窗类型，可选值 0-4-->
+<!-- - title 弹窗标题，可选值 text/array-->
+<!-- - content 弹窗内容，可选值 text/html/dom-->
+<body>
+
+<div id="testmain" style="display:none;padding:10px; height: 173px; width: 275px;">
+    hello world!
+</div>
+
+</body>
+<script>
+    layui.use(["layer"],function(){
+        layer = layui.layer;
+        layer.open({
+            type:1,// 消息框，没有确定按钮
+            title:["hello","padding-left:5px"], // 标题，及标题样式
+            content:layui.$("#testmain"), // dom格式
+            offset:'rb',//可以在右下角显示
+            shade:false //是否遮罩
+        });
+        layer.open({
+            type:2,// iframe加载，需要一个url
+            content:"demo08_layer.html"
+        });
+    });
+</script>
+
+</html>
